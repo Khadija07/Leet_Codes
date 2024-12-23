@@ -1,0 +1,38 @@
+from typing import List
+
+class Solution:
+    def plusOne(self, digits: List[int]):
+        
+       l = len(digits)
+       if l == 1 and digits[0] == 9:    #checking if digit is 9
+           digits[0] = 0
+           digits.append(1)
+           digits.sort(reverse=True)
+           return digits
+           
+       if digits[l-1] < 9:             
+           digits[l-1] = digits[l-1] + 1
+           return digits
+           
+       else:
+            digits[l-1] = 0
+            i = l - 2
+            while(i >= 0):
+                if digits[i] < 9:
+                    digits[i] = digits[i] + 1     #increment if digit less than 9
+                    return digits
+                else:
+                    digits[i] = 0
+                    if(i==0):                    #checking if all digits are 9 in the list
+                        digits.append(1)
+                        digits.sort(reverse=True)
+                    i -= 1
+                    
+                    
+            return digits
+           
+       
+        
+s = Solution()
+print(s.plusOne([1,0,9,9]))
+print(s.plusOne([9,9]))

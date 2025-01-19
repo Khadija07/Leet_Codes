@@ -8,11 +8,19 @@ class Solution:
             if b == 5:
                 mychange += 5
                 myList.append(b)
-            elif mychange >= (b-5):
-                total = 0
+            else:
                 i = 0
-              
-                return False
+                while(len(myList) > 0):
+                    if(myList[i] >= b) and (myList[i] == 20):
+                        b = b - myList[i]
+                        myList.remove(myList[i])
+                    elif(myList >=b) and myList[i] == 10:
+                        
+                        
+                        
+                        
+                    
+        return False
            
             
                 
